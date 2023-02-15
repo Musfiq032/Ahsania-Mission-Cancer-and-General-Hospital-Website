@@ -15,7 +15,9 @@ def home_view(request):
     service_home_view = Service.objects.all()[:8]
     doc_list = Doctor.objects.all()
     news_list = New.objects.all()
-    donor_list= Donor.objects.all()
+    donor_list = Donor.objects.all()
+    c_d_g = 'Cancer-Day-2023'
+    cd_g = Gallery.objects.filter(category_id__category_name__exact=c_d_g)
     context = {
         'service_list': service_home_view,
         'doc_list': doc_list,
@@ -26,7 +28,8 @@ def home_view(request):
         'department_3': department_3,
         'department_4': department_4,
         'news_list': news_list,
-        'donor_list': donor_list
+        'donor_list': donor_list,
+        'gallery': cd_g
     }
     return render(request, 'homepage/index.html', context)
 
@@ -45,18 +48,17 @@ def news_list_view(request):
 def news_details_view(request, id):
     request.session['news_id'] = id
     news_obj = New.objects.get(id=id)
-    news_obj.news_views=  news_obj.news_views + 1
+    news_obj.news_views = news_obj.news_views + 1
     news_obj.save()
     news_details = New.objects.all()
     department_menu = Department.objects.all()
     news_list = New.objects.all()
-    news_category= NewsCategory.objects.all()
+    news_category = NewsCategory.objects.all()
     context = {
         'department_menu': department_menu,
         'news_obj': news_obj,
         'news_details': news_details,
         'news_category': news_category
-
 
     }
     return render(request, 'News&events/blog-single.html', context)
@@ -114,7 +116,6 @@ from django.db.models import Count
 
 
 def doctor_list_view(request, department_slug=None):
-
     departments = Department.objects.all().annotate(posts_count=Count('doctor'))
     departments_slug = Department_Slug.objects.all()
     department_menu = Department.objects.all()
@@ -205,18 +206,30 @@ def contact_view(request):
 def gallery_view(request):
     department_menu = Department.objects.all()
     gallery_category = GalleryCategory.objects.all()
-    gallery = Gallery.objects.all()
+    gallery = Gallery.objects.all().reverse()
     filterd_gallery_category = request.GET.get('category')
+    c_d_g = 'Cancer-Day-2023'
+    p_u_g = 'Pitha-Utshob-2023'
+    n_y_g= 'New-Year-2023'
+    mu_g= 'Memorandum-of-Understanding'
+    cd_g = gallery.filter(category_id__category_name__exact=c_d_g)
+    pu_g = gallery.filter(category_id__category_name__exact=p_u_g)
+    ny_g = gallery.filter(category_id__category_name__exact=n_y_g)
+    mu_g = gallery.filter(category_id__category_name__exact=mu_g)
 
     if filterd_gallery_category == 'All':
-        gallery = Gallery.objects.all()
+        gallery = Gallery.objects.all().reverse()
     elif is_valid_queryparam(filterd_gallery_category):
         gallery = gallery.filter(category_id__category_name=filterd_gallery_category)
 
     context = {
         'gallery_category': gallery_category,
         'filterd_gallery': gallery,
-        'department_menu': department_menu
+        'department_menu': department_menu,
+        'cancer_day_g': cd_g,
+        'pitha_utshob_2023': pu_g,
+        'New_Year_2023': ny_g,
+        'Memorandum_understanding': mu_g
     }
     return render(request, 'gallary.html', context)
 
@@ -311,7 +324,7 @@ def donation_over_10k_view(request):
         'donation_over_10k': donation_over_10k
     }
     return render(request, 'Donation/donation_over_10k.html', context)
-    
-def doctors_schedule(request):
 
+
+def doctors_schedule(request):
     return render(request, 'doctors_schedule.html')
