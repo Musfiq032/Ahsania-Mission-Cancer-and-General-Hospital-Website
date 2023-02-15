@@ -1209,8 +1209,8 @@ label.custom-checkbox .checkmark:after {
 .footer-style-1 .footer-style-1-box .logo,
 .main-navigation-style-1 .navigation .mobile-logo,
 .main-navigation-style-1 .navigation .logo {
-    width: 310px;
-    height: 50px;
+    width: 350px;
+    height: 70px;
     margin: 10px 10px;
     
 }
@@ -2665,10 +2665,10 @@ label.custom-checkbox .checkmark:after {
 .services-style-2 .service-block .service-block-inner .image-layer:before {
     position: absolute;
     content: '';
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     background-color: #109a49;
     opacity: .5;
 }
@@ -2820,18 +2820,18 @@ label.custom-checkbox .checkmark:after {
 }
 .doctors-team-style-2 .team-block .image .overlay-box {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
 .doctors-team-style-2 .team-block .image .overlay-box:before {
     position: absolute;
     content: '';
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0;
     top: 100%;
     transition: all 900ms ease;

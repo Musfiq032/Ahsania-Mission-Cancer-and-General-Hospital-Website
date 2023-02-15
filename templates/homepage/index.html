@@ -41,24 +41,25 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+{#        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>#}
+{#        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>#}
     <![endif]-->
 
 
 
-<script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function(){
-        /////// Prevent closing from click inside dropdown
-        document.querySelectorAll('.dropdown-menu').forEach(function(element){
-        	element.addEventListener('click', function (e) {
-        		e.stopPropagation();
-        	});
-        })
-    });
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            /////// Prevent closing from click inside dropdown
+            document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                });
+            })
+        });
 	// DOMContentLoaded  end
-</script>   <!-- place -->
+    </script> <!-- place -->
 </head>
+
 <body class="animated-banner">
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
@@ -68,27 +69,27 @@
     </div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "450371562013630");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "450371562013630");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v15.0'
-        });
-      };
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v15.0'
+            });
+        };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
     <!-- Start Main Body -->
     <div class="main-body">
@@ -101,9 +102,9 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="left-side" style="padding-top: 10px;">
                                 <div class="language-box">
-                                     <p class="text-custom-yellow-light no-margin">
-                                    Hotline: 10617
-                                </p>
+                                    <p class="text-custom-yellow-light no-margin">
+                                        Hotline: 10617
+                                    </p>
                                 </div>
                                 <p class="text-custom-white no-margin">
                                     Embankment Highway, Uttara-10, Dhaka-1230
@@ -112,9 +113,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="right-side">
-                               <ul class="custom">
+                                <ul class="custom">
                                     <li>
-                                        <a class="live text-custom-white fs-14" href="{% url 'main_application:Doctors-Schedule' %}">
+                                        <a class="live text-custom-white fs-14"
+                                            href="{% url 'main_application:Doctors-Schedule' %}">
                                             <i class="fas fa-circle">
                                             </i>Doctor's Schedule</a>
                                     </li>
@@ -134,66 +136,85 @@
                                 <div class="logo">
 
                                     <a href="{% url 'main_application:Home' %}">
-                                        <img src="{% static 'assets/images/amcgh-logo (2).png' %}" class="img-fluid image-fit " alt="Logo">
+                                        <img src="{% static 'assets/images/new_logo.png' %}"
+                                            class="img-fluid image-fit " alt="Logo">
 
                                     </a>
                                 </div>
                                 <div class="main-menu">
                                     <div class="mobile-logo">
                                         <a href="{% url 'main_application:Home' %}">
-                                            <img src="{% static 'assets/images/apple-icon-144x144.png' %}" class="img-fluid image-fit" alt="Logo">
+                                            <img src="{% static 'assets/images/apple-icon-144x144.png' %}"
+                                                class="img-fluid image-fit" alt="Logo">
                                         </a>
                                     </div>
                                     <nav>
-                                        <ul class="custom" style="padding: 0px;">
+                                        <ul class="custom" style="padding: 0;">
 
                                             <li class="menu-item menu-item-has-children">
                                                 <a href="#" class="text-custom-green">About Us</a>
-                                                 <ul class="custom sub-menu" style="padding: 0px;">
+                                                <ul class="custom sub-menu" style="padding: 0;">
                                                     <li class="menu-item">
-                                                        <a href="{% url 'main_application:whoWeAre' %}" class="text-light-grey">Who We Are</a>
+                                                        <a href="{% url 'main_application:whoWeAre' %}"
+                                                            class="text-light-grey">Who We Are</a>
                                                     </li>
-                                                 <li class="menu-item">
-                                                        <a href="{% url 'main_application:mission&vission' %}" class="text-light-grey">Mission & Vision</a>
+                                                    <li class="menu-item">
+                                                        <a href="{% url 'main_application:mission&vission' %}"
+                                                            class="text-light-grey">Mission & Vision</a>
                                                     </li>
-                                                       <li class="menu-item">
-                                                        <a href="{% url 'main_application:governing-body' %}" class="text-light-grey">Governing Body</a>
+                                                    <li class="menu-item">
+                                                        <a href="{% url 'main_application:governing-body' %}"
+                                                            class="text-light-grey">Governing Body</a>
                                                     </li>
-                                                       <li class="menu-item">
-                                                        <a href="{% url 'main_application:management-team' %}" class="text-light-grey">Management Team</a>
+                                                    <li class="menu-item">
+                                                        <a href="{% url 'main_application:management-team' %}"
+                                                            class="text-light-grey">Management Team</a>
                                                     </li>
-                                                       <li class="menu-item">
-                                                        <a href="{% url 'main_application:backgroundHistory' %}" class="text-light-grey">Background History</a>
+                                                    <li class="menu-item">
+                                                        <a href="{% url 'main_application:backgroundHistory' %}"
+                                                            class="text-light-grey">Background History</a>
                                                     </li>
-                                                           <li class="menu-item menu-item-has-children">
+                                                    <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="text-light-grey">Donation</a>
-                                                     <ul class="custom sub-menu" style="padding: 0px;">
-                                                         <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Goverment-Donation' %}" class="text-light-grey">Goverment Donations</a>
-                                                         </li>
-                                                          <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Corporate-Donation' %}" class="text-light-grey">Corporate Donations</a>
-                                                         </li>
-                                                             <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Corporate-Donation(Others)' %}" class="text-light-grey">Other Corporate Donations</a>
-                                                         </li>
-                                                           <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Donation-Overseas' %}" class="text-light-grey">Overseas donation</a>
-                                                         </li>
-                                                         <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Donation-Over-10Lac' %}" class="text-light-grey">Donation Over 10Lac</a>
-                                                         </li>
-                                                         <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Donation-Over-5Lac' %}" class="text-light-grey">Donation Over 5Lac to 10Lac</a>
-                                                         </li>
-                                                         <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Donation-Over-1Lac' %}" class="text-light-grey">Donation Over 1Lac to 5Lac</a>
-                                                         </li>
-                                                         <li class="menu-item">
-                                                                       <a href="{% url 'main_application:Donation-Over-10k' %}" class="text-light-grey">Donation Over 10K to 1Lac</a>
-                                                         </li>
+                                                        <ul class="custom sub-menu" style="padding: 0;">
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Goverment-Donation' %}"
+                                                                    class="text-light-grey">Goverment Donations</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Corporate-Donation' %}"
+                                                                    class="text-light-grey">Corporate Donations</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Corporate-Donation(Others)' %}"
+                                                                    class="text-light-grey">Other Corporate
+                                                                    Donations</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Donation-Overseas' %}"
+                                                                    class="text-light-grey">Overseas donation</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Donation-Over-10Lac' %}"
+                                                                    class="text-light-grey">Donation Over 10Lac</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Donation-Over-5Lac' %}"
+                                                                    class="text-light-grey">Donation Over 5Lac to
+                                                                    10Lac</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Donation-Over-1Lac' %}"
+                                                                    class="text-light-grey">Donation Over 1Lac to
+                                                                    5Lac</a>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <a href="{% url 'main_application:Donation-Over-10k' %}"
+                                                                    class="text-light-grey">Donation Over 10K to
+                                                                    1Lac</a>
+                                                            </li>
 
-                                                     </ul>
+                                                        </ul>
 
 
                                                     </li>
@@ -203,95 +224,112 @@
 
                                             <li class="menu-item menu-item-has-children">
                                                 <a href="#" class="text-custom-green">News & Events</a>
-                                                <ul class="custom sub-menu" style="padding: 0px;">
+                                                <ul class="custom sub-menu" style="padding: 0;">
                                                     <li class="menu-item">
-                                                        <a href="{% url 'main_application:News-List' %}" class="text-light-grey">News</a>
+                                                        <a href="{% url 'main_application:News-List' %}"
+                                                            class="text-light-grey">News</a>
                                                     </li>
-                                                 <li class="menu-item">
-                                                        <a href="{% url 'main_application:gallery' %}" class="text-light-grey">Photo Gallery</a>
+                                                    <li class="menu-item">
+                                                        <a href="{% url 'main_application:gallery' %}"
+                                                            class="text-light-grey">Photo Gallery</a>
                                                     </li>
 
                                                 </ul>
                                             </li>
 
-                                           <li class="menu-item">
-                                                        <a href="{% url 'main_application:doctor-list' %}" class="text-custom-green">Our Doctors</a>
-                                                    </li>
+                                            <li class="menu-item">
+                                                <a href="{% url 'main_application:doctor-list' %}"
+                                                    class="text-custom-green">Our Doctors</a>
+                                            </li>
 
                                             <li class="menu-item menu-item-has-megamenu">
-                                                        <a href="#" class="text-custom-green">Departments</a>
-                                                <ul class="custom megamenu" style="padding-top:15px; padding-bottom: 15px; padding-left: 30px;">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                <h5 style="padding-top: 0; font-weight: 600; color: green;" >Oncology Department</h5>
-                                                    {% for departments in department_1 %}
-                                                    <li class="menu-item" style="padding-top: 5px; font-size: 15px;">
-                                                        <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
-                                                    </li>
+                                                <a href="#" class="text-custom-green">Departments</a>
+                                                <ul class="custom megamenu"
+                                                    style="padding-top:15px; padding-bottom: 15px; padding-left: 30px;">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <h5 style="padding-top: 0; font-weight: 600; color: green;">
+                                                                Oncology Department</h5>
+                                                            {% for departments in department_1 %}
+                                                            <li class="menu-item"
+                                                                style="padding-top: 5px; font-size: 15px;">
+                                                                <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}"
+                                                                    class="text-light-grey">{{departments.department_name }}</a>
+                                                            </li>
 
-                                                    {% endfor %}
-                                                </div>
-                                                <div class="col-md-3">
-                                                <h5 style="padding-top: 0; font-weight: 600; color: green;" >All Department</h5>
-                                                    {% for departments in department_2 %}
-                                                    <li class="menu-item" style="padding-top: 5px; font-size: 15px;">
-                                                        <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
-                                                    </li>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <h5 style="padding-top: 0; font-weight: 600; color: green;">
+                                                                All Department</h5>
+                                                            {% for departments in department_2 %}
+                                                            <li class="menu-item"
+                                                                style="padding-top: 5px; font-size: 15px;">
+                                                                <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}"
+                                                                    class="text-light-grey">{{departments.department_name }}</a>
+                                                            </li>
 
-                                                    {% endfor %}
-                                                </div>
-                                                     <div class="col-md-3">
-                                                    {% for departments in department_3 %}
-                                                    <li class="menu-item" style="padding-top: 5px; font-size: 15px;">
-                                                        <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
-                                                    </li>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            {% for departments in department_3 %}
+                                                            <li class="menu-item"
+                                                                style="padding-top: 5px; font-size: 15px;">
+                                                                <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}"
+                                                                    class="text-light-grey">{{departments.department_name }}</a>
+                                                            </li>
 
-                                                    {% endfor %}
-                                                </div>
-                                                     <div class="col-md-3">
-                                                    {% for departments in department_4 %}
-                                                    <li class="menu-item" style="padding-top: 5px; font-size: 15px;">
-                                                        <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}" class="text-light-grey">{{ departments.department_name }}</a>
-                                                    </li>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            {% for departments in department_4 %}
+                                                            <li class="menu-item"
+                                                                style="padding-top: 5px; font-size: 15px;">
+                                                                <a href="{{ departments.get_absolute_url }}?departments={{ departments.department_name }}"
+                                                                    class="text-light-grey">{{departments.department_name }}</a>
+                                                            </li>
 
-                                                    {% endfor %}
-                                                </div>
-                                                </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
 
 
                                                 </ul>
 
 
-                                                    </li>
+                                            </li>
 
                                             <li class="menu-item menu-item-has-children">
-                                                        <a href="#" class="text-custom-green">Visitors & Patients</a>
-                                                 <ul class="custom sub-menu" style="padding: 0px;">
+                                                <a href="#" class="text-custom-green">Visitors & Patients</a>
+                                                <ul class="custom sub-menu" style="padding: 0;">
                                                     <li class="menu-item">
-                                                        <a href="{% url 'main_application:service-list' %}" class="text-light-grey">Services</a>
+                                                        <a href="{% url 'main_application:service-list' %}"
+                                                            class="text-light-grey">Services</a>
                                                     </li>
-                                                 <li class="menu-item">
+                                                    <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Facilities</a>
                                                     </li>
-                                                <li class="menu-item">
+                                                    <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Packages</a>
                                                     </li>
-                                                <li class="menu-item">
+                                                    <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Room Rent</a>
                                                     </li>
-                                                <li class="menu-item">
+                                                    <li class="menu-item">
                                                         <a href="#" class="text-light-grey">Equipments</a>
                                                     </li>
 
                                                 </ul>
-                                                    </li>
-
-                                                 <li class="menu-item">
-                                                        <a href="{% url 'main_application:career' %}" class="text-custom-green">Career</a>
-                                                    </li>
+                                            </li>
 
                                             <li class="menu-item">
-                                                <a href="{% url 'main_application:contact-us' %}" class="text-custom-green">Contact Us</a>
+                                                <a href="{% url 'main_application:career' %}"
+                                                    class="text-custom-green">Career</a>
+                                            </li>
+
+                                            <li class="menu-item">
+                                                <a href="{% url 'main_application:contact-us' %}"
+                                                    class="text-custom-green">Contact Us</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -315,7 +353,7 @@
 
         <!-- End Header -->
         <!-- Start Slider -->
- <div class="slider parallax" id="banner-animation">
+        <div class="slider parallax" id="banner-animation">
             <div class="transform-center">
                 <div class="container">
                     <div class="row">
@@ -324,7 +362,9 @@
                                 <div class="slide-item">
                                     <div class="banner-text">
                                         <h1 class="text-custom-white fw-700">Best Care <br>Best Treatment </h1>
-                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular accountability group special music. Theology seeing the fruit oceans outreach, treasure that very relational father</p>
+                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular
+                                            accountability group special music. Theology seeing the fruit oceans
+                                            outreach, treasure that very relational father</p>
                                         <a href="#" class="btn-first btn-submit text-light-blue">
                                             Read More
                                         </a>
@@ -333,7 +373,9 @@
                                 <div class="slide-item">
                                     <div class="banner-text">
                                         <h1 class="text-custom-white fw-700">We Flexible Managed Dental Services </h1>
-                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular accountability group special music. Theology seeing the fruit oceans outreach, treasure that very relational father</p>
+                                        <p class="text-custom-white">Bind brought it harvest super unpack that secular
+                                            accountability group special music. Theology seeing the fruit oceans
+                                            outreach, treasure that very relational father</p>
                                         <a href="#" class="btn-first btn-submit text-light-blue">
                                             Learn More
                                         </a>
@@ -356,8 +398,9 @@
                                 <i class="flaticon-flag"></i>
                                 <h4 class="text-custom-white fw-700">Find Your Doctor</h4>
                                 <p class="text-custom-white">Here You can search the best cancer doctor available</p>
-                                <a href="tel:" class="btn-first btn-submit-white fw-600"><i class="fas fa-search"></i> Doctor-></a>
-                                </table>
+                                <a href="tel:" class="btn-first btn-submit-white fw-600"><i class="fas fa-search"></i>
+                                    Doctor-></a>
+
                             </div>
                         </div>
                     </div>
@@ -366,8 +409,10 @@
                             <div class="intro-wrapper text-center">
                                 <i class="flaticon-flag"></i>
                                 <h4 class="text-custom-white fw-700">Appointments</h4>
-                                <p class="text-custom-white">We have 24-hour call center service for proper doctor appointment.</p>
-                                <a href="tel:" class="btn-first btn-submit-white fw-600"><i class="fas fa-phone-alt"></i> 10617</a>
+                                <p class="text-custom-white">We have 24-hour call center service for proper doctor
+                                    appointment.</p>
+                                <a href="tel:" class="btn-first btn-submit-white fw-600"><i
+                                        class="fas fa-phone-alt"></i> 10617</a>
                             </div>
                         </div>
                     </div>
@@ -376,7 +421,8 @@
                             <div class="intro-wrapper text-center">
                                 <i class="flaticon-flag"></i>
                                 <h4 class="text-custom-white fw-700">Emergency Cases</h4>
-                                <p class="text-custom-white">We have 24-Hour Emergency service in our hospital for yor convinience</p>
+                                <p class="text-custom-white">We have 24-Hour Emergency service in our hospital for yor
+                                    convinience</p>
                             </div>
                         </div>
                     </div>
@@ -395,7 +441,13 @@
 
                                 <div class="section-description">
                                     <p class="text-light-white">
-                                        Cancer is no longer considered a mortal disease provided it is detected and treated in time.Bangladesh has a number of hospitals which are providing world class treatment in curing various diseases but not Cancer.Cancer treatment, requiring a very long and expensive procedure, is still beyond the reach of the average people of our country, let alone the question of the poor masses. To the general mass Cancer is a killer of the patients as well as their families because of the exorbitant treatment cost which drains out a family fortune.
+                                        Cancer is no longer considered a mortal disease provided it is detected and
+                                        treated in time.Bangladesh has a number of hospitals which are providing world
+                                        class treatment in curing various diseases but not Cancer.Cancer treatment,
+                                        requiring a very long and expensive procedure, is still beyond the reach of the
+                                        average people of our country, let alone the question of the poor masses. To the
+                                        general mass Cancer is a killer of the patients as well as their families
+                                        because of the exorbitant treatment cost which drains out a family fortune.
                                     </p>
                                 </div>
                             </div>
@@ -405,14 +457,16 @@
                             <div class="signature mb-xl-40">
                                 <span class="fs-14 text-light-blue fw-600">Kazi Rafiqul Alam, President of AMCGH</span>
                             </div>
-                            <a href="{% url 'main_application:messageFromPresident' %}" class="btn-first btn-submit text-light-blue">
+                            <a href="{% url 'main_application:messageFromPresident' %}"
+                                class="btn-first btn-submit text-light-blue">
                                 Read More
                             </a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 align-self-center">
                         <div class="doctor-img">
-                            <img src="{% static 'assets/images/President.jpg' %}" class="img-fluid image-fit" alt="President Image">
+                            <img src="{% static 'assets/images/President.jpg' %}" class="img-fluid image-fit"
+                                alt="President Image">
                         </div>
                     </div>
                 </div>
@@ -479,30 +533,33 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text.
                             </p>
                         </div>
                     </div>
                     <div class="section-btn">
-                        <a href="{% url 'main_application:service-list' %}" class="btn-first btn-submit text-light-blue">View More</a>
+                        <a href="{% url 'main_application:service-list' %}"
+                            class="btn-first btn-submit text-light-blue">View More</a>
                     </div>
                 </div>
 
-                           <div class="row">
+                <div class="row">
                     {% for service in service_list %}
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="main-services-box p-relative mb-xl-30">
                             <div class="main-service-wrapper padding-20">
                                 <div class="icon-box">
-                                    <img src="{{ service.logo.url }}">
+                                    <img src="{{ service.logo.url }}" alt="service-{{ service.service_name }}">
                                 </div>
-                                <h5 class="fw-700"><a href="{{ service.get_absolute_url }}" class="text-custom-black">{{ service.service_name }}</a></h5>
-                                <p class="text-light-white no-margin">Lorem ipsum dolor sit amet consecte adipiscing elit sed do eiusincidunt.</p>
+                                <h5 class="fw-700"><a href="{{ service.get_absolute_url }}" class="text-custom-black">{{service.service_name }}</a></h5>
+                                <p class="text-light-white no-margin">Lorem ipsum dolor sit amet consecte adipiscing
+                                    elit sed do eiusincidunt.</p>
                             </div>
                         </div>
                     </div>
-    {% endfor %}
+                    {% endfor %}
                 </div>
 
 
@@ -511,7 +568,7 @@
 
         <!-- Department-->
 
-       <section class="section-padding features-sec">
+        <section class="section-padding features-sec">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 align-self-center">
@@ -521,22 +578,27 @@
                                 <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                                 <div class="section-description">
                                     <p class="text-light-white">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum has been the industry's standard dummy text.
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <p class="text-light-white">
-                            On the other hand, we denounce with righteous indignation the fault annuals dislike men who are so beguiled and demoralized by the nuhaiicharms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound toen sue; and equal blame belongs to those who fail in their duty.
+                            On the other hand, we denounce with righteous indignation the fault annuals dislike men who
+                            are so beguiled and demoralized by the nuhaiicharms of pleasure of the moment, so blinded by
+                            desire, that they cannot foresee the pain and trouble that are bound toen sue; and equal
+                            blame belongs to those who fail in their duty.
                         </p>
 
-                      <div class="section-btn">
-                        <a href="{% url 'main_application:department-list' %}" class="btn-first btn-submit text-light-blue">View More</a>
-                    </div>
+                        <div class="section-btn">
+                            <a href="{% url 'main_application:department-list' %}"
+                                class="btn-first btn-submit text-light-blue">View More</a>
+                        </div>
                     </div>
 
 
-                 <div class="col-xl-7 col-lg-6">
+                    <div class="col-xl-7 col-lg-6">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="features-wrapper first-box">
@@ -544,13 +606,14 @@
                                     <div class="card-container mb-xl-30">
                                         <div class="card">
                                             <div class="side">
-                                                <img src="{{  department_home.department_image.url }}" class="image-fit" alt="Jimmy Eat World" style='opacity: 0.8;'>
+                                                <img src="{{  department_home.department_image.url }}" class="image-fit"
+                                                    alt="Jimmy Eat World" style='opacity: 0.8;'>
                                                 <div class="front-text">
-                                                    <h3 class="text-custom-white no-margin fw-600">{{ department_home.department_name }}</h3>
+                                                    <h3 class="text-custom-white no-margin fw-600">{{department_home.department_name }}</h3>
                                                 </div>
                                             </div>
                                             <div class="side back">
-                                                <p class="fs-16 no-margin">{{ department_home.department_short_description}}</p>
+                                                <p class="fs-16 no-margin">{{department_home.department_short_description}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -560,17 +623,19 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="features-wrapper">
-                    {% for department_home in department_home_list_2 %}
+                                    {% for department_home in department_home_list_2 %}
                                     <div class="card-container mb-xl-30">
                                         <div class="card">
                                             <div class="side">
-                                                <img src="{{  department_home.department_image.url }}" class="image-fit" alt="Jimmy Eat World" style='opacity: 0.8;'>
-                                                <div class="front-text" >
-                                                    <h3 class="text-custom-white no-margin fw-600">{{ department_home.department_name }}</h3>
+                                                <img src="{{  department_home.department_image.url }}" class="image-fit"
+                                                    alt="Jimmy Eat World" style='opacity: 0.8;'>
+                                                <div class="front-text">
+                                                    <h3 class="text-custom-white no-margin fw-600">
+                                                        {{department_home.department_name }}</h3>
                                                 </div>
                                             </div>
                                             <div class="side back">
-                                                <p class="fs-16 no-margin" style="font-size: 16px;">{{ department_home.department_short_description}}</p>
+                                                <p class="fs-16 no-margin" style="font-size: 16px;">{{department_home.department_short_description}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -595,7 +660,7 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
-                                You can get more facilities from our hospital.                            </p>
+                                You can get more facilities from our hospital. </p>
                         </div>
                     </div>
                 </div>
@@ -604,16 +669,19 @@
                         <div class="square-tabs">
                             <ul class="nav nav-tabs custom">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#Linear-Accelerator">Linear Accelerator</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#Linear-Accelerator">Linear
+                                        Accelerator</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#CT-Simulator">CT Simulator</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#Cobalt-60-Teletherapy">Cobalt-60 Teletherapy</a>
+                                    <a class="nav-link" data-toggle="tab" href="#Cobalt-60-Teletherapy">Cobalt-60
+                                        Teletherapy</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#HDR-Brachytherapy">HDR Brachytherapy</a>
+                                    <a class="nav-link" data-toggle="tab" href="#HDR-Brachytherapy">HDR
+                                        Brachytherapy</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#Dual-Head-SPECT">Dual Head SPECT</a>
@@ -625,13 +693,17 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="img-sec mb-md-40">
-                                                    <img src="{% static 'assets/images/special_facilities/Linear-Accelerator.jpg' %}" class="full-width" alt="img">
+                                                    <img src="{% static 'assets/images/special_facilities/Linear-Accelerator.jpg' %}"
+                                                        class="full-width" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 align-self-center">
                                                 <div class="content-box">
                                                     <h4 class="text-custom-black">What does Linear Accelerator do?</h4>
-                                                    <p class="text-light-white">A medical linear accelerator (LINAC) is the device most commonly used for external beam radiation treatments for patients with cancer. It delivers high-energy x-rays or electrons to the region of the patient's tumor</p>
+                                                    <p class="text-light-white">A medical linear accelerator (LINAC) is
+                                                        the device most commonly used for external beam radiation
+                                                        treatments for patients with cancer. It delivers high-energy
+                                                        x-rays or electrons to the region of the patient's tumor</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -642,13 +714,17 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="img-sec mb-md-40">
-                                                    <img src="{% static 'assets/images/special_facilities/CT-Simulator.jpg' %}" class="full-width" alt="img">
+                                                    <img src="{% static 'assets/images/special_facilities/CT-Simulator.jpg' %}"
+                                                        class="full-width" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 align-self-center">
                                                 <div class="content-box">
                                                     <h4 class="text-custom-black">What is a CT Simulator?</h4>
-                                                    <p class="text-light-white">A CT simulator (CT-S) is a real-time, CT-linked, 3-D treatment planning system, which consists of a CT scanner, a multi-image display, a treatment planning device with real-time visual optimization, and a laser beam projector.</p>
+                                                    <p class="text-light-white">A CT simulator (CT-S) is a real-time,
+                                                        CT-linked, 3-D treatment planning system, which consists of a CT
+                                                        scanner, a multi-image display, a treatment planning device with
+                                                        real-time visual optimization, and a laser beam projector.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -659,13 +735,20 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="img-sec mb-md-40">
-                                                    <img src="{% static 'assets/images/special_facilities/Cobalt-60-Teletherapy.jpg' %}" class="full-width" alt="img">
+                                                    <img src="{% static 'assets/images/special_facilities/Cobalt-60-Teletherapy.jpg' %}"
+                                                        class="full-width" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 align-self-center">
                                                 <div class="content-box">
-                                                    <h4 class="text-custom-black">What does Cobalt-60-Teletherapy do?</h4>
-                                                    <p class="text-light-white">Cobalt therapy is the medical use of gamma rays from the radioisotope cobalt-60 to treat conditions such as cancer. Beginning in the 1950s, cobalt-60 was widely used in external beam radiotherapy (teletherapy) machines, which produced a beam of gamma rays which was directed into the patient's body to kill tumor tissue.</p>
+                                                    <h4 class="text-custom-black">What does Cobalt-60-Teletherapy do?
+                                                    </h4>
+                                                    <p class="text-light-white">Cobalt therapy is the medical use of
+                                                        gamma rays from the radioisotope cobalt-60 to treat conditions
+                                                        such as cancer. Beginning in the 1950s, cobalt-60 was widely
+                                                        used in external beam radiotherapy (teletherapy) machines, which
+                                                        produced a beam of gamma rays which was directed into the
+                                                        patient's body to kill tumor tissue.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -676,17 +759,23 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="img-sec mb-md-40">
-                                                    <img src="{% static 'assets/images/special_facilities/HDR-Bracytharapy.jpg' %}" class="full-width" alt="img">
+                                                    <img src="{% static 'assets/images/special_facilities/HDR-Bracytharapy.jpg' %}"
+                                                        class="full-width" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 align-self-center">
                                                 <div class="content-box">
                                                     <h4 class="text-custom-black">What does HDR-Brachytherapy do?</h4>
-                                                    <p class="text-light-white">HDR(High-Dose Rate) brachytherapy is a form of internal radiotherapy where an oncologist:<br><br>
+                                                    <p class="text-light-white">HDR(High-Dose Rate) brachytherapy is a
+                                                        form of internal radiotherapy where an oncologist:<br><br>
 
-1.Temporarily implants a catheter — a small plastic tube or balloon — in the tumor area.<br>
-2.Places highly radioactive material inside the body for a short time and then retracts it using a remote control.<br>
-3.Removes the catheter after you've completed your entire course of treatment. You may need multiple sessions of HDR brachytherapy.</p>
+                                                        1.Temporarily implants a catheter — a small plastic tube or
+                                                        balloon — in the tumor area.<br>
+                                                        2.Places highly radioactive material inside the body for a short
+                                                        time and then retracts it using a remote control.<br>
+                                                        3.Removes the catheter after you've completed your entire course
+                                                        of treatment. You may need multiple sessions of HDR
+                                                        brachytherapy.</p>
 
                                                 </div>
                                             </div>
@@ -698,13 +787,17 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="img-sec mb-md-40">
-                                                    <img src="{% static 'assets/images/special_facilities/Dual-Head-SPECT.jpg' %}" class="full-width" alt="img">
+                                                    <img src="{% static 'assets/images/special_facilities/Dual-Head-SPECT.jpg' %}"
+                                                        class="full-width" alt="img">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 align-self-center">
                                                 <div class="content-box">
                                                     <h4 class="text-custom-black">What does Dual-Head SPECT do?</h4>
-                                                    <p class="text-light-white">Regarding myocardial viability, positive predictive value for the diagnosis of myocardial scar tissue was significantly higher for dual-head- as compared to single-head acquisition.</p>
+                                                    <p class="text-light-white">Regarding myocardial viability, positive
+                                                        predictive value for the diagnosis of myocardial scar tissue was
+                                                        significantly higher for dual-head- as compared to single-head
+                                                        acquisition.</p>
 
 
                                                 </div>
@@ -720,7 +813,7 @@
         </section>
 
         <!-- Doctor -->
-             <section class="section-padding doctors-team-style-2">
+        <section class="section-padding doctors-team-style-2">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
@@ -728,16 +821,17 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                 <div class="col-12 no-padding">
+                    <div class="col-12 no-padding">
 
                         <div class="doctors-slider">
-                               {% for doctors in doc_list %}
+                            {% for doctors in doc_list %}
                             <div class="slide-item col-12">
                                 <div class="team-block p-relative">
                                     <div class="inner-box">
@@ -745,18 +839,20 @@
                                             <img src="{{ doctors.profile_pic.url }}" alt="img" class="full-width">
                                         </div>
                                         <div class="lower-content p-relative text-center">
-                                            <h5><a href="{{ doctors.get_absolute_url }}" class="text-custom-black fw-200 fs-10">{{ doctors.doctor_name}}</a></h5>
+                                            <h5><a href="{{ doctors.get_absolute_url }}"
+                                                    class="text-custom-black fw-200 fs-10">{{ doctors.doctor_name}}</a>
+                                            </h5>
                                             <p class="designation text-light-white">
                                                 {% for department in doctors.department.all %}
                                                 {{ department }}
-                                                    {% endfor %}
+                                                {% endfor %}
                                             </p>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-             {% endfor %}
+                            {% endfor %}
                         </div>
 
 
@@ -776,7 +872,7 @@
             <div class="pattern"></div>
             <div class="container">
                 <div class="row">
-                 <div class="col-xl-5 col-lg-6 align-self-center">
+                    <div class="col-xl-5 col-lg-6 align-self-center">
                         <div class="testimonial-box mb-md-80">
                             <div class="section-header">
                                 <div class="section-heading">
@@ -784,7 +880,8 @@
                                     <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                                     <div class="section-description">
                                         <p class="text-custom-white">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text.
                                         </p>
                                     </div>
                                 </div>
@@ -793,26 +890,38 @@
                                 <ul class="testimonials-inner custom testimonial-slider">
                                     <li>
                                         <div class="testimonial-content">
-                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. <i class="fas fa-quote-right"></i></h6>
+                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem
+                                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam
+                                                eget risus varius blandit sit amet non magna. <i
+                                                    class="fas fa-quote-right"></i></h6>
                                             <div class="testimonials-author-box">
                                                 <div class="testimonials-author animate-img rounded-circle">
-                                                    <img src="https://via.placeholder.com/58" class="image-fit rounded-circle" alt="Author image">
+                                                    <img src="https://via.placeholder.com/58"
+                                                        class="image-fit rounded-circle" alt="Author image">
                                                 </div>
                                                 <ul class="author-info custom">
-                                                    <li class="text-custom-white fs-18 text-left">Linda Choi<span class="fs-14 fw-300"><i class="fab fa-twitter"></i> @twitterhandle</span></li>
+                                                    <li class="text-custom-white fs-18 text-left">Linda Choi<span
+                                                            class="fs-14 fw-300"><i class="fab fa-twitter"></i>
+                                                            @twitterhandle</span></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="testimonial-content">
-                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. <i class="fas fa-quote-right"></i></h6>
+                                            <h6 class="text-custom-white fs-18"><i class="fas fa-quote-left"></i> Lorem
+                                                ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam
+                                                eget risus varius blandit sit amet non magna. <i
+                                                    class="fas fa-quote-right"></i></h6>
                                             <div class="testimonials-author-box">
                                                 <div class="testimonials-author animate-img rounded-circle">
-                                                    <img src="https://via.placeholder.com/58" class="image-fit rounded-circle" alt="Author image">
+                                                    <img src="https://via.placeholder.com/58"
+                                                        class="image-fit rounded-circle" alt="Author image">
                                                 </div>
                                                 <ul class="author-info custom">
-                                                    <li class="text-custom-white fs-18 text-left">Jhon Deo<span class="fs-14 fw-300"><i class="fab fa-twitter"></i> @twitterhandle</span></li>
+                                                    <li class="text-custom-white fs-18 text-left">Jhon Deo<span
+                                                            class="fs-14 fw-300"><i class="fab fa-twitter"></i>
+                                                            @twitterhandle</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -824,10 +933,15 @@
                     <div class="col-xl-6 col-lg-12">
                         <div class="video-box full-height">
                             <div class="video_wrapper video_wrapper_full js-videoWrapper">
-                                <iframe class="videoIframe js-videoIframe" src="https://www.youtube.com/watch?v=NxXtJ4hnHbM" data-src="https://www.youtube.com/embed/NxXtJ4hnHbM?autoplay=1" allow="autoplay"></iframe>
+                                <iframe class="videoIframe js-videoIframe"
+                                    src="https://www.youtube.com/watch?v=NxXtJ4hnHbM"
+                                    data-src="https://www.youtube.com/embed/NxXtJ4hnHbM?autoplay=1"
+                                    allow="autoplay"></iframe>
                                 <div class="videoPoster js-videoPoster">
-                                    <img src="{% static 'assets/css/images/Banner_1_1920x800.JPG' %}" class="img-fluid full-width" alt="#">
-                                    <div class="video-inner video-btn-wrapper"> <a href="JavaScript:Void(0);" class="text-light-blue"><i class="flaticon-play-button"></i></a></div>
+                                    <img src="{% static 'assets/css/images/Banner_1_1920x800.JPG' %}"
+                                        class="img-fluid full-width" alt="#">
+                                    <div class="video-inner video-btn-wrapper"> <a href="JavaScript:Void(0);"
+                                            class="text-light-blue"><i class="flaticon-play-button"></i></a></div>
                                 </div>
                             </div>
                         </div>
@@ -839,7 +953,7 @@
 
         <!-- Start Blog -->
 
- <section class="section-padding our_articles">
+        <section class="section-padding our_articles">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
@@ -847,7 +961,8 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text.
                             </p>
                         </div>
                     </div>
@@ -859,30 +974,37 @@
                             <article class="post col-12">
                                 <div class="single-blog">
                                     <div class="post-meta">
-                                      <div class="post-date"><a href="#" class="text-custom-white">{{ news_list_instance.created_at }}</a></div>
+                                        <div class="post-date"><a href="#" class="text-custom-white">{{news_list_instance.created_at }}</a></div>
                                     </div>
                                     <div class="blog-photo">
-                                      <img src="{{ news_list_instance.news_thumbnail.url }}" class="full-width" alt="#">
+                                        <img src="{{ news_list_instance.news_thumbnail.url }}" class="full-width"
+                                            alt="#">
                                     </div>
                                     <div class="post-contnet">
-                                      <h2 class="post-title text-custom-black">{{ news_list_instance.news_title }}</h2>
-                                      <p class="text-light-white">{{ news_list_instance.excert }}....</p>
-                                      <div class="post-author">
-                                        <span class="text-custom-black fw-500 fs-14">Post by <a href="#" class="text-dark">AMCGH</a></span>
-                                      </div>
-                                        <a href="{{ news_list_instance.get_absolute_url }}" class="fw-500 fs-14">Read More</a>
-                                    </div>
-             <div class="blog-overlay">
-                                      <div class="right-text-effect post-content">
-                                        <h4 class="post-title"><a href="{{ news_list_instance.get_absolute_url }}" class="text-white">{{ news_list_instance.news_title }}</a></h4>
-                                      </div>
-
-                                      <div class="blog-read-more-icon">
+                                        <h2 class="post-title text-custom-black">{{ news_list_instance.news_title }}
+                                        </h2>
+                                        <p class="text-light-white">{{ news_list_instance.excert }}....</p>
                                         <div class="post-author">
-                                          <span class="text-custom-green fw-600 fs-14">Post by <a href="#" class="text-white">AMCGH</a></span>
+                                            <span class="text-custom-black fw-500 fs-14">Post by <a href="#"
+                                                    class="text-dark">AMCGH</a></span>
                                         </div>
-                                        <a href="{{ news_list_instance.get_absolute_url }}" class="fw-500 fs-14">Read More</a>
-                                      </div>
+                                        <a href="{{ news_list_instance.get_absolute_url }}" class="fw-500 fs-14">Read
+                                            More</a>
+                                    </div>
+                                    <div class="blog-overlay">
+                                        <div class="right-text-effect post-content">
+                                            <h4 class="post-title"><a href="{{ news_list_instance.get_absolute_url }}"
+                                                    class="text-white">{{ news_list_instance.news_title }}</a></h4>
+                                        </div>
+
+                                        <div class="blog-read-more-icon">
+                                            <div class="post-author">
+                                                <span class="text-custom-green fw-600 fs-14">Post by <a href="#"
+                                                        class="text-white">AMCGH</a></span>
+                                            </div>
+                                            <a href="{{ news_list_instance.get_absolute_url }}"
+                                                class="fw-500 fs-14">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -906,7 +1028,8 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-custom-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text.
                             </p>
                         </div>
                     </div>
@@ -929,7 +1052,7 @@
 
                                 <tbody>
                                     <tr>
-                                        <td><span class="time" >9.00-4.00</span></td>
+                                        <td><span class="time">9.00-4.00</span></td>
                                         <td>
                                             <h3>Dr.Shariful Alam</h3>
                                             <span>Clinical Oncology</span>
@@ -947,11 +1070,11 @@
                                             <span>Oncologist</span>
                                         </td>
                                         <td>
-                                           <h3>Dr.Shariful Alam</h3>
+                                            <h3>Dr.Shariful Alam</h3>
                                             <span>Clinical Oncology</span>
                                         </td>
                                         <td>
-                                           <h3>Dr.Shariful Alam</h3>
+                                            <h3>Dr.Shariful Alam</h3>
                                             <span>Clinical Oncology</span>
                                         </td>
 
@@ -962,13 +1085,16 @@
                                         <td>
                                             <h3>Dr. Qamruzzaman</h3>
                                             <span>Oncology</span>
-                                            <br><h3>&</h3><br> <h3>Dr. Abul Ahsan (Didar)</h3><span>Pain & Palliative Care</span>
+                                            <br>
+                                            <h3>&</h3><br>
+                                            <h3>Dr. Abul Ahsan (Didar)</h3><span>Pain & Palliative Care</span>
 
                                         </td>
                                         <td>
                                             <h3>Dr. Qamruzzaman</h3>
                                             <span>Oncology</span>
-                                            <br><h3>&</h3><br>
+                                            <br>
+                                            <h3>&</h3><br>
                                             <h3>Dr. Abul Ahsan (Didar)</h3>
                                             <span>Pain & Palliative Care</span>
 
@@ -984,7 +1110,8 @@
                                         <td>
                                             <h3>Dr. Qamruzzaman</h3>
                                             <span>Oncology</span>
-                                             <br><h3>&</h3><br>
+                                            <br>
+                                            <h3>&</h3><br>
                                             <h3>Dr. Abul Ahsan (Didar)</h3>
                                             <span>Pain & Palliative Care</span>
 
@@ -1036,7 +1163,7 @@
                                             <span>Oncologist</span>
                                         </td>
                                         <td>
-                                           <h3>Dr. Sadia Sharmin</h3>
+                                            <h3>Dr. Sadia Sharmin</h3>
                                             <span>Oncologist</span>
                                         </td>
                                         <td>
@@ -1054,7 +1181,8 @@
                                         <td>
                                             <h3>Dr. Arup</h3>
                                             <span>Oncologist</span>
-                                            <br><h3>&</h3><br>
+                                            <br>
+                                            <h3>&</h3><br>
                                             <h3>Dr. Md. Shariful Islam Johnny</h3>
                                             <span>Oncology</span>
                                         </td>
@@ -1067,9 +1195,10 @@
                                             <span>Oncologist</span>
                                         </td>
                                         <td>
-                                           <h3>Dr. Arup</h3>
+                                            <h3>Dr. Arup</h3>
                                             <span>Oncologist</span>
-                                            <br><h3>&</h3><br>
+                                            <br>
+                                            <h3>&</h3><br>
                                             <h3>Dr. Md. Shariful Islam Johnny</h3>
                                             <span>Oncology</span>
                                         </td>
@@ -1085,7 +1214,7 @@
             </div>
         </section>
 
-                 <section class="section-padding doctors-team-style-2">
+        <section class="section-padding doctors-team-style-2">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
@@ -1093,26 +1222,27 @@
                         <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
                         <div class="section-description">
                             <p class="text-light-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                 <div class="col-12 no-padding">
+                    <div class="col-12 no-padding">
 
                         <div class="doctors-slider">
-                               {% for donors in donor_list %}
+                            {% for donors in donor_list %}
                             <div class="slide-item col-12">
                                 <div class="team-block p-relative">
                                     <div class="inner-box">
                                         <div class="image animate-img">
-                                            <img src="{{ donors.donor_logo.url }}" alt="img" class="full-width">
+                                            <img src="{{ donors.donor_logo.url }}" alt="img" class="img-fluid full-width">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-             {% endfor %}
+                            {% endfor %}
                         </div>
 
 
@@ -1130,7 +1260,8 @@
                     <div class="col-lg-6">
                         <div class="newsletter-content-wrapper mb-md-40">
                             <h3 class="text-custom-white fw-600">Join Our Newsletter</h3>
-                            <p class="text-custom-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            <p class="text-custom-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt.</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1138,7 +1269,8 @@
                             <form>
                                 <div class="input-group">
                                     <label>
-                                        <input type="email" name="#" class="form-control form-control-custom" placeholder="Email Id">
+                                        <input type="email" name="#" class="form-control form-control-custom"
+                                            placeholder="Email Id">
                                     </label>
                                     <div class="input-group-append">
                                         <button type="submit">Subscribe</button>
@@ -1159,7 +1291,8 @@
                         <div class="footer-box mb-md-40">
                             <div class="logo">
                                 <a href="{% url 'main_application:Home' %}">
-                                    <img src="{% static 'assets/images/apple-icon-144x144.png' %}" class="img-fluid image-fit" alt="logo" style="height: 144px; width: 144px;">
+                                    <img src="{% static 'assets/images/apple-icon-144x144.png' %}"
+                                        class="img-fluid image-fit" alt="logo" style="height: 144px; width: 144px;">
                                 </a>
                             </div>
                             <p class="text-custom-black" style="padding-top: 2em;">
@@ -1170,11 +1303,17 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="footer-info">
                             <h5 class="text-custom-black fw-600">Important Links</h5>
-                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:about' %}">About Us</a></p>
-                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:contact-us' %}">Contact Us</a></p>
-                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:governing-body' %}">Governing Body</a></p>
-                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:management-team' %}">Management Team</a></p>
-                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:messageFromPresident' %}">Message From Our President</a></p>
+                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:about' %}">About Us</a>
+                            </p>
+                            <p class="text-custom-black fs-14"><a href="{% url 'main_application:contact-us' %}">Contact
+                                    Us</a></p>
+                            <p class="text-custom-black fs-14"><a
+                                    href="{% url 'main_application:governing-body' %}">Governing Body</a></p>
+                            <p class="text-custom-black fs-14"><a
+                                    href="{% url 'main_application:management-team' %}">Management Team</a></p>
+                            <p class="text-custom-black fs-14"><a
+                                    href="{% url 'main_application:messageFromPresident' %}">Message From Our
+                                    President</a></p>
 
                         </div>
                     </div>
@@ -1190,7 +1329,8 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="footer-info">
                             <h5 class="text-custom-black fw-600">Our Location</h5>
-                            <p class="text-custom-black fs-14">Plot-03, Embankment Drive Way,<br> Sector-10, Uttara Model Town,<br>Dhaka-1230</p>
+                            <p class="text-custom-black fs-14">Plot-03, Embankment Drive Way,<br> Sector-10, Uttara
+                                Model Town,<br>Dhaka-1230</p>
                             <p class="no-margin text-custom-black fs-14">
                                 Email: <a href="#" class="text-custom-black fw-600">info@amcghbd.org</a><br>
                                 Phone: <a href="#" class="text-custom-black fw-600">09612-310617</a>
@@ -1207,13 +1347,15 @@
                 <div class="row">
                     <div class="col-md-6 align-self-center">
                         <p class="text-custom-black">
-                            © 2022 <a href="#" class="fw-600" target="_blank">AMCGH, IT Department.</a> All Rights Reserved
+                            © 2022 <a href="#" class="fw-600" target="_blank">AMCGH, IT Department.</a> All Rights
+                            Reserved
                         </p>
                     </div>
                     <div class="col-md-6">
                         <div class="social-media mb-xl-20">
                             <ul class="custom">
-                                <li><a href="https://www.facebook.com/ahsaniacancer" class="text-light-grey fs-14"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.facebook.com/ahsaniacancer" class="text-light-grey fs-14"><i
+                                            class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-linkedin"></i></a></li>
                                 <li><a href="#" class="text-light-grey fs-14"><i class="fab fa-youtube"></i></a></li>
@@ -1226,7 +1368,7 @@
         <!-- End Copyright -->
         <!-- back to top -->
         <div id="back-top" class="back-top">
-          <a href="#top"><i class="flaticon-up-arrow"></i></a>
+            <a href="#top"><i class="flaticon-up-arrow"></i></a>
         </div>
     </div>/>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
@@ -1253,12 +1395,13 @@
     <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
     <!-- Custom Js -->
     <script src="{% static 'assets/js/custom.js' %}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 
 </body>
 <style>
 
 
 </style>
-</html>
 
+</html>

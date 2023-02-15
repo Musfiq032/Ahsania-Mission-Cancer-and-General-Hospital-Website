@@ -6,41 +6,122 @@
 {% block content %}
 
 
-        <section class="section-padding gallery-style-2 style-3">
+        <section class="why-choose-us-style-2 section-padding bg-light-white">
             <div class="container">
-                <div class="section-header">
-                    <div class="section-heading">
-                        <h3 class="text-custom-black fw-700">Our Gallery</h3>
-                        <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">
-                        <div class="section-description">
-                            <p class="text-light-white">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
-                            </p>
+
+                            <div class="row">
+                    <div class="col-12">
+                        <div class="square-tabs">
+                            <ul class="nav nav-tabs custom">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#All">All</a>
+                                </li>
+                                {% for cat in gallery_category %}
+                                     <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#{{ cat.category_name }}">{{ cat.category_name }}</a>
+                                </li>
+                                {% endfor %}
+
+
+
+                            </ul>
+                            <div class="tab-content padding-20 bg-custom-white">
+                                <div class="tab-pane container active" id="Linear-Accelerator">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="{% static 'assets/images/special_facilities/Linear-Accelerator.jpg' %}" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does Linear Accelerator do?</h4>
+                                                    <p class="text-light-white">A medical linear accelerator (LINAC) is the device most commonly used for external beam radiation treatments for patients with cancer. It delivers high-energy x-rays or electrons to the region of the patient's tumor</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="CT-Simulator">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="{% static 'assets/images/special_facilities/CT-Simulator.jpg' %}" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What is a CT Simulator?</h4>
+                                                    <p class="text-light-white">A CT simulator (CT-S) is a real-time, CT-linked, 3-D treatment planning system, which consists of a CT scanner, a multi-image display, a treatment planning device with real-time visual optimization, and a laser beam projector.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="Cobalt-60-Teletherapy">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="{% static 'assets/images/special_facilities/Cobalt-60-Teletherapy.jpg' %}" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does Cobalt-60-Teletherapy do?</h4>
+                                                    <p class="text-light-white">Cobalt therapy is the medical use of gamma rays from the radioisotope cobalt-60 to treat conditions such as cancer. Beginning in the 1950s, cobalt-60 was widely used in external beam radiotherapy (teletherapy) machines, which produced a beam of gamma rays which was directed into the patient's body to kill tumor tissue.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="HDR-Brachytherapy">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="{% static 'assets/images/special_facilities/HDR-Bracytharapy.jpg' %}" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does HDR-Brachytherapy do?</h4>
+                                                    <p class="text-light-white">HDR(High-Dose Rate) brachytherapy is a form of internal radiotherapy where an oncologist:<br><br>
+
+1.Temporarily implants a catheter — a small plastic tube or balloon — in the tumor area.<br>
+2.Places highly radioactive material inside the body for a short time and then retracts it using a remote control.<br>
+3.Removes the catheter after you've completed your entire course of treatment. You may need multiple sessions of HDR brachytherapy.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="Dual-Head-SPECT">
+                                    <div class="tab-inner">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="img-sec mb-md-40">
+                                                    <img src="{% static 'assets/images/special_facilities/Dual-Head-SPECT.jpg' %}" class="full-width" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 align-self-center">
+                                                <div class="content-box">
+                                                    <h4 class="text-custom-black">What does Dual-Head SPECT do?</h4>
+                                                    <p class="text-light-white">Regarding myocardial viability, positive predictive value for the diagnosis of myocardial scar tissue was significantly higher for dual-head- as compared to single-head acquisition.</p>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-         <!--       <div class="row"  style="padding: 20px;" >
-                    <div class="col-8">
-                    </div>
-                       <div class="col-6">
-
-                           <form class="form-inline">
-
-                    <div class="form-group mx-sm-3 mb-2 select">
-                            <select class="form-control" name="category" >
-                                <option value="All">All</option>
-                                {% for category_list in gallery_category %}
-                                    <option value="{{ category_list.category_name }}">{{ category_list.category_name }}</option>
-                                {% endfor %}
-
-                            </select>
-  </div>
-  <button type="submit" class="btn-first btn-submit text-light-blue mb-2">Submit</button>
-</form>
-
-                    </div>
-                </div>
-                -->
                 <div class="row gallery-grid">
                     {% for gallery_images in filterd_gallery %}
                     <div class="col-lg-4 col-sm-6 filter-box category_name">
@@ -56,52 +137,6 @@
             </div>
         </section>
 
-<style>
-:root {
-  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-  --gray: #34495e;
-  --darkgray: #2c3e50;
-}
 
-select {
-  /* Reset Select */
-  appearance: none;
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  /* Personalize */
-  flex: 1;
-  padding: 0 1em;
-  color: #fff;
-  background-color: #2c3e50;
-  background-image: none;
-  cursor: pointer;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
-}
-/* Custom Select wrapper */
-.select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: .25em;
-  overflow: hidden;
-}
-/* Arrow */
-
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
-}
-
-/* Other styles*/
-h1 {
-  margin: 0 0 0.25em;
-}
-
-</style>
 
   {% endblock %}
