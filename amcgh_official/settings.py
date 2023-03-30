@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'main_application_amcgh',
-    'django_extensions'
+    'django_extensions',
+    'Services'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block title %} Room Rent | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Room Rent{% endblock page_name %}
+{% block page_link %}<a style="color: #e63a3a;"href="{% url 'main_application:service-list' %}">Room Rent</a>{% endblock page_link %}
+{% load static %}
+{% block content %}
+
+        <section class="why-choose-us-style-2 section-padding bg-light-white">
+        <div class="container">
+{#            <div class="section-header">#}
+{#                <div class="section-heading">#}
+{#                    <h3 class="text-custom-black fw-700">Our Facilities</h3>#}
+{#                    <img src="{% static 'assets/images/title-icon.png' %}" class="mb-xl-20" alt="img">#}
+{#                    <div class="section-description">#}
+{#                        <p class="text-light-white">#}
+{#                            You can get more facilities from our hospital. </p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+            <div class="row">
+                <div class="col-12">
+                    <div class="square-tabs">
+                        <ul class="nav nav-tabs custom">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#VIP-Cabin">VIP Cabin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#Delux-Cabin">Delux-Cabin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#Single-Cabin">Single-Cabin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#General-Ward">General-Ward</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#Day-Care-Ward">Day-Care-Ward</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content padding-20 bg-custom-white">
+                            <div class="tab-pane container active" id="VIP-Cabin">
+                                <div class="tab-inner">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="img-sec mb-md-40">
+                                                <img src="{% static 'assets/images/cabin_new.jpg' %}"
+                                                     class="full-width" alt="img">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 align-self-center">
+                                            <div class="content-box">
+                                                <h4 class="text-custom-black">VIP-Cabin</h4>
+                                                <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="Delux-Cabin">
+                                <div class="tab-inner">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                                <img src="{% static 'assets/images/delux_cabin.png' %}"
+                                                     class="full-width" alt="img">
+                                        </div>
+                                        <div class="col-lg-6 align-self-center">
+                                        <div class="content-box">
+                                            <h4 class="text-custom-black">Delux-Cabin</h4>
+                                            <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="Single-Cabin">
+                            <div class="tab-inner">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="img-sec mb-md-40">
+                                                <img src="{% static 'assets/images/single_cabin.jpg'  %}"
+                                                     class="full-width" alt="img">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 align-self-center">
+                                        <div class="content-box">
+                                            <h4 class="text-custom-black">Single-Cabin
+                                            </h4>
+                                            <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="tab-pane container fade" id="General-Ward">
+                            <div class="tab-inner">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="img-sec mb-md-40">
+
+                                                <img src="{% static 'assets/images/General-ward.png'  %}"
+                                                     class="full-width" alt="img">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 align-self-center">
+                                        <div class="content-box">
+                                            <h4 class="text-custom-black">General-Ward</h4>
+                                            <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="tab-pane container fade" id="Day-Care-Ward">
+                            <div class="tab-inner">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="img-sec mb-md-40">
+                                                <img src="{% static 'assets/images/day_care_ward.jpg' %}"
+                                                     class="full-width" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 align-self-center">
+                                        <div class="content-box">
+                                            <h4 class="text-custom-black">Day-Care-Ward</h4>
+                                            <p class="text-light-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section class="why-choose-us-style-2 section-padding bg-light-white" style="padding-top: 0;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+                    <h4 class="text-custom-black" style="font-weight: bold;">Room Rate</h4>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-6">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+                                <th>Room Type</th>
+						      <th>Room Rate</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                          {% for instance in room_info %}
+						    <tr class="alert" role="alert">
+						      <td>
+                                {{ instance.Room_Type }}
+						      </td>
+						      <td>{{ instance.Room_Rate }}</td>
+
+						    </tr>
+                             {% endfor %}
+					      </tbody>
+					   </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
