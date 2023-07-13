@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'multiselectfield',
     'main_application_amcgh',
     'django_extensions',
-    'Services'
+    'Services',
+    'main_application_amcgh.templatetags.random_image',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,7 @@ STATICFILES_DIRS =(
 )
 
 MEDIA_URL = '/media/'
+RANDOM_IMAGE_DIR = 'media/PopUp_Banners/'
 
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')

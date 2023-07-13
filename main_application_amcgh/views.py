@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from main_application_amcgh.models import *
+from Services.models import *
 
 from django.db.models import Q
 import time
@@ -16,6 +17,7 @@ def home_view(request):
     doc_list = Doctor.objects.all()
     news_list = New.objects.all()
     donor_list = Donor.objects.all()
+    banner_popup = PopupBanner.objects.all()[0]
     c_d_g = 'Cancer-Day-2023'
     cd_g = Gallery.objects.filter(category_id__category_name__exact=c_d_g)
     context = {
@@ -29,17 +31,28 @@ def home_view(request):
         'department_4': department_4,
         'news_list': news_list,
         'donor_list': donor_list,
-        'gallery': cd_g
+        'gallery': cd_g,
+        'banner_popup': banner_popup
     }
     return render(request, 'homepage/index.html', context)
 
 
-def news_list_view(request):
+def news_list_view(request, cat_slag=None):
     department_menu = Department.objects.all()
-    news_list = New.objects.all()
+    recent_news = New.objects.all()[3:]
+    news_slug= NewsSlug.objects.all()
+
+    if cat_slag:
+        slug = get_object_or_404(NewsSlug, slug=cat_slag)
+        news_list = New.objects.filter(news_category__newsslug__slug=slug)
+    else:
+        news_list = New.objects.all()
+
     context = {
         'department_menu': department_menu,
-        'news_list': news_list
+        'news_list': news_list,
+        'news_slug': news_slug,
+        'recent_news': recent_news,
 
     }
     return render(request, 'News&events/blog-sidebar.html', context)
@@ -205,20 +218,20 @@ def contact_view(request):
 
 def gallery_view(request):
     department_menu = Department.objects.all()
-    gallery_category = GalleryCategory.objects.all()
-    gallery = Gallery.objects.all().reverse()
+    gallery_category = GalleryCategory.objects.all()[:4]
+    gallery = Gallery.objects.all().order_by('created_at').reverse()
     filterd_gallery_category = request.GET.get('category')
     c_d_g = 'Cancer-Day-2023'
     p_u_g = 'Pitha-Utshob-2023'
-    n_y_g= 'New-Year-2023'
-    mu_g= 'Memorandum-of-Understanding'
+    n_y_g = 'New-Year-2023'
+    mu_g = 'Memorandum-of-Understanding'
     cd_g = gallery.filter(category_id__category_name__exact=c_d_g)
     pu_g = gallery.filter(category_id__category_name__exact=p_u_g)
     ny_g = gallery.filter(category_id__category_name__exact=n_y_g)
     mu_g = gallery.filter(category_id__category_name__exact=mu_g)
 
     if filterd_gallery_category == 'All':
-        gallery = Gallery.objects.all().reverse()
+        gallery = Gallery.objects.all().order_by('image_name').reverse()
     elif is_valid_queryparam(filterd_gallery_category):
         gallery = gallery.filter(category_id__category_name=filterd_gallery_category)
 
@@ -254,77 +267,102 @@ def message_from_president(request):
     return render(request, 'message_from_president.html')
 
 
-def goverment_donation_view(request):
-    gv_donation = DonationGoverment.objects.all()
-
-    context = {
-        'gv_donation': gv_donation
-    }
-    return render(request, 'Donation/goverment_donation.html', context)
-
-
-def corporate_donation_view(request):
-    corporate_donation = DonationCorporateBank.objects.all()
-
-    context = {
-        'corporate_donation': corporate_donation
-    }
-    return render(request, 'Donation/corporate_donation.html', context)
-
-
-def corporate_donation_others_view(request):
-    corporate_donation_others = DonationCorporateOthers.objects.all()
-
-    context = {
-        'corporate_donation_others': corporate_donation_others
-    }
-    return render(request, 'Donation/corporate_donation_others.html', context)
-
-
-def donation_overseas_view(request):
-    donation_overseas = DonationOverseas.objects.all()
-
-    context = {
-        'donation_overseas': donation_overseas
-    }
-    return render(request, 'Donation/donation_overseas.html', context)
-
-
-def donation_over_10Lac_view(request):
-    donation_over_10Lac = DonationOver10Lac.objects.all()
-
-    context = {
-        'donation_over_10Lac': donation_over_10Lac
-    }
-    return render(request, 'Donation/donation_over_10lacs.html', context)
-
-
-def donation_over_5Lac_view(request):
-    donation_over_5Lac = DonationOver5LacsTo10Lac.objects.all()
-
-    context = {
-        'donation_over_5Lac': donation_over_5Lac
-    }
-    return render(request, 'Donation/donation_over_5Lacs.html', context)
-
-
-def donation_over_1Lac_view(request):
-    donation_over_1Lac = DonationOver1LacTo5Lac.objects.all()
-
-    context = {
-        'donation_over_1Lac': donation_over_1Lac
-    }
-    return render(request, 'Donation/donation_over_1lacs.html', context)
-
-
-def donation_over_10k_view(request):
-    donation_over_10k = DonationOver10kTo1Lac.objects.all()
-
-    context = {
-        'donation_over_10k': donation_over_10k
-    }
-    return render(request, 'Donation/donation_over_10k.html', context)
+# def goverment_donation_view(request):
+#     gv_donation = DonationGoverment.objects.all()
+#
+#     context = {
+#         'gv_donation': gv_donation
+#     }
+#     return render(request, 'Donation/goverment_donation.html', context)
+#
+#
+# def corporate_donation_view(request):
+#     corporate_donation = DonationCorporateBank.objects.all()
+#
+#     context = {
+#         'corporate_donation': corporate_donation
+#     }
+#     return render(request, 'Donation/corporate_donation.html', context)
+#
+#
+# def corporate_donation_others_view(request):
+#     corporate_donation_others = DonationCorporateOthers.objects.all()
+#
+#     context = {
+#         'corporate_donation_others': corporate_donation_others
+#     }
+#     return render(request, 'Donation/corporate_donation_others.html', context)
+#
+#
+# def donation_overseas_view(request):
+#     donation_overseas = DonationOverseas.objects.all()
+#
+#     context = {
+#         'donation_overseas': donation_overseas
+#     }
+#     return render(request, 'Donation/donation_overseas.html', context)
+#
+#
+# def donation_over_10Lac_view(request):
+#     donation_over_10Lac = DonationOver10Lac.objects.all()
+#
+#     context = {
+#         'donation_over_10Lac': donation_over_10Lac
+#     }
+#     return render(request, 'Donation/donation_over_10lacs.html', context)
+#
+#
+# def donation_over_5Lac_view(request):
+#     donation_over_5Lac = DonationOver5LacsTo10Lac.objects.all()
+#
+#     context = {
+#         'donation_over_5Lac': donation_over_5Lac
+#     }
+#     return render(request, 'Donation/donation_over_5Lacs.html', context)
+#
+#
+# def donation_over_1Lac_view(request):
+#     donation_over_1Lac = DonationOver1LacTo5Lac.objects.all()
+#
+#     context = {
+#         'donation_over_1Lac': donation_over_1Lac
+#     }
+#     return render(request, 'Donation/donation_over_1lacs.html', context)
+#
+#
+# def donation_over_10k_view(request):
+#     donation_over_10k = DonationOver10kTo1Lac.objects.all()
+#
+#     context = {
+#         'donation_over_10k': donation_over_10k
+#     }
+#     return render(request, 'Donation/donation_over_10k.html', context)
 
 
 def doctors_schedule(request):
     return render(request, 'doctors_schedule.html')
+
+
+def donation(request, donation_slug=None):
+
+    # departments = Department.objects.all().annotate(posts_count=Count('doctor'))
+    donation_category_slug = DonationSlug.objects.all()
+    donation_category = DonationCategory.objects.all()
+    department_menu = Department.objects.all()
+
+    if donation_slug:
+        donation_slug = get_object_or_404(DonationSlug, slug=donation_slug)
+        donation_list = Donation.objects.filter(Donation_Category__donationslug__slug=donation_slug)
+
+    else:
+        donation_list = Donation.objects.all().filter(Donation_Category__Donation_Category__exact='Government Donation')
+
+    context = {
+        'donation_list': donation_list,
+        'department_list': department_list,
+        'donation_category_slug': donation_category_slug,
+        'department_menu': department_menu,
+        'donation_category': donation_category
+
+    }
+    return render(request, 'Donation/Donation_List.html', context)

@@ -1,18 +1,21 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 class Department(models.Model):
     department_name = models.CharField(max_length=255)
     department_short_description = models.TextField(null=True, blank=True)
     department_description = RichTextField(blank=False, null=False, default='Nothing')
-    department_image = models.ImageField(upload_to='Department/',null=True, blank=True)
+    department_image = models.ImageField(upload_to='Department/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('department_name',)
+        verbose_name_plural = " Department"
+
 
     def get_absolute_url(self):
         return reverse("main_application:department_details", kwargs={"id": self.id})
@@ -35,20 +38,17 @@ class Department_Slug(models.Model):
         return self.slug
 
 
-
 class Doctor(models.Model):
-    
     doctor_name = models.CharField(max_length=255)
     designation = models.TextField(null=False)
     department = models.ManyToManyField(Department)
     degree = models.CharField(max_length=255)
     profile_pic = models.FileField(upload_to='Doctor_Profile_Pic', default='User-avatar.png')
     research_publication = RichTextField(blank=True, null=True)
-    appointment = models.CharField(max_length=255,null=True, blank=True)
-    sorting_order= models.IntegerField(null=True, blank=True)
+    appointment = models.CharField(max_length=255, null=True, blank=True)
+    sorting_order = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    
 
     def get_absolute_url(self):
         return reverse("main_application:doctor_details", kwargs={"id": self.id})
@@ -56,25 +56,35 @@ class Doctor(models.Model):
     def __str__(self):
         return self.doctor_name
 
+    class Meta:
+        ordering = ('doctor_name',)
+        verbose_name_plural = " Doctor"
 
 class ManagementTeam(models.Model):
     member_name = models.CharField(max_length=255)
-    designation = models.CharField(max_length=255,null=True, blank=True)
+    designation = models.CharField(max_length=255, null=True, blank=True)
     institution = models.CharField(max_length=255)
     profile_pic = models.ImageField(default='default.png', upload_to='Management Team')
 
     def __str__(self):
         return self.member_name
+    class Meta:
+        ordering = ('member_name',)
+        verbose_name_plural = " Management Team"
 
 
 class GoverningBody(models.Model):
     member_name = models.CharField(max_length=255)
-    designation = models.CharField(max_length=255,null=True, blank=True)
+    designation = models.CharField(max_length=255, null=True, blank=True)
     institution = models.CharField(max_length=255, default='None')
     profile_pic = models.ImageField(default='default.png', upload_to='Governing Body')
 
     def __str__(self):
         return self.member_name
+
+    class Meta:
+        ordering = ('member_name',)
+        verbose_name_plural = " Governing Body"
 
 
 class GalleryCategory(models.Model):
@@ -82,7 +92,8 @@ class GalleryCategory(models.Model):
 
     def __str__(self):
         return self.category_name
-
+    class Meta:
+        verbose_name_plural = "Gallary Category"
 
 class Gallery(models.Model):
     image_name = models.CharField(max_length=255)
@@ -94,12 +105,20 @@ class Gallery(models.Model):
     def __str__(self):
         return self.image_name
 
+    class Meta:
+        ordering = ('created_at',)
+        verbose_name_plural = " Gallery"
+
+
+################Dynamic New####################
 
 class NewsCategory(models.Model):
     news_category_name = models.CharField(max_length=255, blank=False)
 
     def __str__(self):
         return self.news_category_name
+    class Meta:
+        verbose_name_plural = "News Category"
 
 
 class New(models.Model):
@@ -119,6 +138,31 @@ class New(models.Model):
     def __str__(self):
         return self.news_title
 
+    class Meta:
+        ordering = ('created_at',)
+        verbose_name_plural = " News"
+
+
+class NewsSlug(models.Model):
+    Slug_Name = models.ForeignKey(NewsCategory, on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.Slug_Name)
+        super(NewsSlug, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('main_application:news_list_by_cat', args=[self.slug])
+
+    def __str__(self):
+        return self.slug
+    class Meta:
+        verbose_name_plural ="News Slug"
+
+
+######################Dynamic News End#######################
+
 
 class Service(models.Model):
     logo = models.ImageField(default='default.png', upload_to='Service/logo')
@@ -134,85 +178,136 @@ class Service(models.Model):
     def get_absolute_url(self):
         return reverse("main_application:service_detail", kwargs={"id": self.id})
 
-
-class DonationGoverment(models.Model):
-    logo = models.ImageField(default='default.png', upload_to='Donatiom/Goverment Donation')
-    name = models.CharField(max_length=255)
-    amount = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
+    class Meta:
+        ordering = ('created_at',)
+        verbose_name_plural = " Services"
 
 
-class DonationCorporateBank(models.Model):
-    company_logo = models.ImageField(upload_to='Corporate Company Logo', blank=True, null=True)
-    company_name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    donated_amount = models.CharField(max_length=255)
+################# Donation Dynamic #########################
+class DonationCategory(models.Model):
+    Donation_Category = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
-        return self.company_name_address
+        return self.Donation_Category
+    class Meta:
+        verbose_name_plural = "Donation Category"
+
+class Donation(models.Model):
+    Donation_Category = models.ForeignKey(DonationCategory, on_delete=models.CASCADE)
+    Oraganization_or_Donators_Name = models.CharField(max_length=100, null=False, blank=True)
+    Organizations_Image = models.ImageField(upload_to='Donation/', blank=True, null=True)
+    Donation_Amount = models.CharField(max_length=100, blank=False, null=False)
+
+    class Meta:
+        ordering = ('Oraganization_or_Donators_Name',)
+        verbose_name_plural = " Donation"
 
 
-class DonationCorporateOthers(models.Model):
-    company_logo = models.ImageField(upload_to='Corporate Company Logo', blank=True, null=True)
-    company_name_address = models.CharField(max_length=255, blank=False)
-    committed_amount = models.CharField(max_length=255, blank=True, default='0')
-    donated_amount = models.CharField(max_length=255, blank=True, default='0')
+class DonationSlug(models.Model):
+    Slug_Name = models.ForeignKey(DonationCategory, on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True, blank=True, null=True)
 
-    def __str__(self):
-        return self.company_name_address
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.Slug_Name)
+        super(DonationSlug, self).save(*args, **kwargs)
 
-
-class DonationOverseas(models.Model):
-    name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    donated_amount = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name_address
-
-
-class DonationOver10Lac(models.Model):
-    name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    recieved_amount = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name_address
-
-
-class DonationOver5LacsTo10Lac(models.Model):
-    name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    recieved_amount = models.CharField(max_length=255)
+    def get_absolute_url(self):
+        return reverse('main_application:donation_list_by_cat', args=[self.slug])
 
     def __str__(self):
-        return self.name_address
+        return self.slug
+
+    class Meta:
+        verbose_name_plural = "Donation Slug"
 
 
-class DonationOver1LacTo5Lac(models.Model):
-    name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    recieved_amount = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name_address
+################### End of Dynamic Donation######################
 
 
-class DonationOver10kTo1Lac(models.Model):
-    name_address = models.CharField(max_length=255)
-    committed_amount = models.CharField(max_length=255)
-    recieved_amount = models.CharField(max_length=255)
+# class DonationGoverment(models.Model):
+#     logo = models.ImageField(default='default.png', upload_to='Donatiom/Goverment Donation')
+#     name = models.CharField(max_length=255)
+#     amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
+# class DonationCorporateBank(models.Model):
+#     company_logo = models.ImageField(upload_to='Corporate Company Logo', blank=True, null=True)
+#     company_name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     donated_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.company_name_address
+#
+#
+# class DonationCorporateOthers(models.Model):
+#     company_logo = models.ImageField(upload_to='Corporate Company Logo', blank=True, null=True)
+#     company_name_address = models.CharField(max_length=255, blank=False)
+#     committed_amount = models.CharField(max_length=255, blank=True, default='0')
+#     donated_amount = models.CharField(max_length=255, blank=True, default='0')
+#
+#     def __str__(self):
+#         return self.company_name_address
+#
+#
+# class DonationOverseas(models.Model):
+#     name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     donated_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name_address
+#
+#
+# class DonationOver10Lac(models.Model):
+#     name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     recieved_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name_address
+#
+#
+# class DonationOver5LacsTo10Lac(models.Model):
+#     name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     recieved_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name_address
+#
+#
+# class DonationOver1LacTo5Lac(models.Model):
+#     name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     recieved_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name_address
+#
+#
+# class DonationOver10kTo1Lac(models.Model):
+#     name_address = models.CharField(max_length=255)
+#     committed_amount = models.CharField(max_length=255)
+#     recieved_amount = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name_address
 
-    def __str__(self):
-        return self.name_address
-        
-        
+
 class Donor(models.Model):
     donor_name = models.CharField(blank=True, default='None', max_length=255)
     donor_logo = models.ImageField(default='default.png', upload_to='Donors')
 
     def __str__(self):
         return self.donor_name
+
+    class Meta:
+        ordering = ('donor_name',)
+        verbose_name_plural = " Donor"
+
 

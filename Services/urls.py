@@ -7,6 +7,7 @@ app_name = 'Services'
 urlpatterns = [
 
                 path('room-rent/', room_rent_view, name='room-rent'),
+                path('package/', package_view, name='package'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)

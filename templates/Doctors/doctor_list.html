@@ -6,7 +6,7 @@
 {% block content %}
 
 
-    <section class="section-padding bg-light-white our-articles">
+        <section class="section-padding bg-light-white our-articles">
             <div class="container">
                 <div class="row">
                     <aside class="col-lg-4">
@@ -46,18 +46,20 @@
         <div class="col-lg-8">
               <div class="row doctors-team style-2">
                     {% for doc_list in doctor %}
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" style="padding-bottom: 20px;">
                         <div class="doctor-item mb-md-30">
                             <div class="doctor-img mb-xl-20">
                                 <img src="{{ doc_list.profile_pic.url }}" class="full-width" alt="image">
                             </div>
                             <div class="doctor-content">
-                                <h6><a href="{{ doc_list.get_absolute_url }}" class="text-custom-black fw-700">{{ doc_list.doctor_name}}</a></h6>
-                                 <p class="text-custom-black fw-400 fs-14">
+                                <h6 style="margin: 5px;"><a href="{{ doc_list.get_absolute_url }}" class="text-custom-black fw-700">{{ doc_list.doctor_name}}</a></h6>
+                                                <p class="text-custom-black fw-400 fs-14" style="margin: 0;">{{ doc_list.degree }}</p>
+                                                <p class="text-custom-black fw-400 fs-14" style="margin: 0;">{{ doc_list.designation }}</p>
                                                         {% for department in doc_list.department.all %}
-                                                <a href="{{ department.get_absolute_url }}?departments={{ department.department_name }}">{{ department.department_name }}</a>
+                                                <a href="{{ department.get_absolute_url }}?departments={{ department.department_name }}" style="float: center; padding-left: 5px;">{{ department.department_name }}</a>
                                                     {% endfor %}
-                                                    </p>
+
+
                                 <ul class="custom">
                                   <li></li>
                                   <li></li>
@@ -74,6 +76,7 @@
        </div>
      </div>
 </section>
+
 
 {% endblock %}
 

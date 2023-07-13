@@ -30,8 +30,13 @@
                                     </div>
                                     <ul class="categories custom">
                                         <li>
-                                            <a href="{% url 'main_application:News-List' %}" class="text-custom-black fs-14">All <span class="text-light-white">(1)</span></a>
+                                            <a href="{% url 'main_application:News-List' %}" class="text-custom-black fs-14">All <span class="text-light-white">({{ news_list.count }})</span></a>
                                         </li>
+                                        {% for slugs in news_slug %}
+                                            <li>
+                                            <a href="{{ slugs.get_absolute_url }}" class="text-custom-black fs-14">{{ slugs.Slug_Name }} <span class="text-light-white">({{ news_list.count }})</span></a>
+                                        </li>
+                                        {% endfor %}
 
                                     </ul>
                                 </div>
@@ -39,58 +44,26 @@
                                     <div class="widget_title bg-light-blue">
                                         <h5 class="no-margin text-custom-white fw-600">Recent Post</h5>
                                     </div>
-                                    <ul class="custom popular_post">
+                                    <ul class="custom popular_post" style="padding-left: 0;">
+                                        {% for recent_n in recent_news %}
                                         <li>
                                             <div class="post">
                                                 <div class="post-wrapper">
                                                     <div class="popular_post_img animate-img">
                                                         <a href="blog-single.html">
-                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
+                                                            <img src="{{ recent_n.news_thumbnail.url}}" class="img-fluid image-fit" alt="recent_news_thumbnail">
                                                         </a>
                                                     </div>
                                                     <div class="popular_post_title">
                                                         <div class="post-date">
-                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
+                                                            <p class="text-light-white no-margin">{{ recent_n.created_at.date}}</p>
                                                         </div>
-                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
+                                                        <h6 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="blog-single.html" class="text-custom-black fs-16 fw-600" >{{ recent_n.news_title}}</a></h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="post">
-                                                <div class="post-wrapper">
-                                                    <div class="popular_post_img animate-img">
-                                                        <a href="blog-single.html">
-                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
-                                                        </a>
-                                                    </div>
-                                                    <div class="popular_post_title">
-                                                        <div class="post-date">
-                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
-                                                        </div>
-                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="post">
-                                                <div class="post-wrapper">
-                                                    <div class="popular_post_img animate-img">
-                                                        <a href="blog-single.html">
-                                                            <img src="https://via.placeholder.com/90" class="img-fluid image-fit" alt="#">
-                                                        </a>
-                                                    </div>
-                                                    <div class="popular_post_title">
-                                                        <div class="post-date">
-                                                            <p class="text-light-white no-margin">12 Dec 2019</p>
-                                                        </div>
-                                                        <h6><a href="blog-single.html" class="text-custom-black fs-16 fw-600">8 Tips to Help You Finding New Home</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
 

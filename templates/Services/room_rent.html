@@ -157,17 +157,19 @@
 						<table class="table">
 						  <thead class="thead-primary">
 						    <tr>
-                                <th>Room Type</th>
-						      <th>Room Rate</th>
+                                 <th>Room Type</th>
+						      <th>Normal Price</th>
+                                <th>Dicounted Price</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-                          {% for instance in room_info %}
+                           {% for instance in room_info %}
 						    <tr class="alert" role="alert">
 						      <td>
                                 {{ instance.Room_Type }}
 						      </td>
 						      <td>{{ instance.Room_Rate }}</td>
+                                <td>{{ instance.discounted_price }}</td>
 
 						    </tr>
                              {% endfor %}

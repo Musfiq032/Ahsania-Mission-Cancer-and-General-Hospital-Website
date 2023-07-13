@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% block title %} Packages | Ahsania Mission Cancer & General Hospital{% endblock title %}
+{% block page_name %}Packages{% endblock page_name %}
+{% block page_link %}<a href="{% url 'main_application:contact-us' %}">Packages</a>{% endblock page_link %}
+{% load static %}
+{% block content %}
+        <!-- End Subheader -->
+        <!-- Start Contact -->
+        <section class="section-padding bg-light-white contact-us">
+        <div class="container d-flex justify-content-center mt-20">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-5">
+
+                            <div class="tab-vertical">
+                                <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-vertical-tab" data-toggle="tab" href="#home-vertical" role="tab" aria-controls="home" aria-selected="true">{{ package_type.first }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#vertical1" role="tab" aria-controls="profile" aria-selected="false">{{ package_type.1 }}</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#vertical2" role="tab" aria-controls="profile" aria-selected="false">{{ package_type.2 }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#vertical3" role="tab" aria-controls="profile" aria-selected="false">{{ package_type.3 }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#vertical4" role="tab" aria-controls="profile" aria-selected="false">{{ package_type.4 }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#vertical5" role="tab" aria-controls="profile" aria-selected="false">{{ package_type.5 }}</a>
+                                    </li>
+
+
+                                </ul>
+                                <div class="tab-content" id="myTabContent3">
+
+                                    <div class="tab-pane fade show active" id="home-vertical" role="tabpanel" aria-labelledby="home-vertical-tab">
+                                       <table class="table align-middle mb-0 bg-white">
+                                              <thead class="bg-light">
+                                                <tr>
+                                                  <th>Package Name</th>
+                                                  <th>Price</th>
+
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for gyne_package in gayne_dep_package %}
+                                                <tr>
+                                                  <td>
+                                                    <div class="d-flex align-items-center">
+                                                      <div class="ms-3">
+                                                        <p class="fw-bold mb-1">{{ gyne_package.package_name }}</p>
+                                                      </div>
+                                                    </div>
+                                                  </td>
+                                                  <td>{{ gyne_package.package_price }} &#2547;</td>
+
+                                                </tr>
+                                              {% endfor %}
+
+                                              </tbody>
+                                            </table>
+                                    <p style="text-align: right;">*শর্ত প্রযোজ্য</p>
+                                    <div class="row">
+                                        <div class="col-6">
+
+                                    <p style="text-align: left;font-weight: bold;font-size: large;">Package Description:</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">1. নরমাল ডেলিভারী</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">2. পেইনলেস নরমাল ডেলিভারী</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">3. স্বল্প খরচে সিজারিয়ান সেকশন</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">4. USAID অনুমোদিত গর্ভকালীন সেবা</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">5. ২৪/৭ ইমার্জেন্সী সার্ভিস </p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">6. ল্যাপারোস্কপিক সার্জারি</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">7. সকল ধরনের ক্যান্সার অপারেশন</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">8. সকল ধরনের স্ক্রিনিং পরীক্ষা</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">9. বার্থিং বলের সাহায্যে নন ফার্মাকোলজিক্যাল পেইন ম্যানেজমেন্ট</p>
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">10. সকল ধরনের পরীক্ষা-নিরীক্ষায় বিশ্বমানের সর্বাধুনিক প্রযুক্তির নিশ্চয়তা</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="row gallery-grid" style="padding-top: 50px;">
+
+                                            <div class="col-lg-6">
+                                                <div class="gallery-item animate-img mb-xl-30">
+                                                    <a href="{% static 'assets/images/gynae_pckg_1.jpeg' %}" class="popup">
+                                                        <img src="{% static 'assets/images/gynae_pckg_1.jpeg' %}" class="image-fluid" alt="img">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 ">
+                                                <div class="gallery-item animate-img mb-xl-30">
+                                                    <a href="{% static 'assets/images/gynae_pckg_2.jpeg' %}" class="popup">
+                                                        <img src="{% static 'assets/images/gynae_pckg_2.jpeg' %}" class="image-fit" alt="img">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    </div>
+
+                                   <div class="tab-pane fade" id="vertical1" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                       <div class="row">
+                                           <div class="col-lg-6">
+                                               <h4 style="text-align: center; font-weight: bold; color: #00000;">Executive Health Check-UP (Male)</h4>
+                                       <p style="text-align: center; font-weight: bold; color: #71748d;">Special Dicount Price - {{ package_type.1.package_price_optional }}&#2547;</p>
+
+
+                                    <p style="text-align: left;font-weight: bold;font-size: large;">Package Description:</p>
+                                    {% for EHM_packages in EHM_package %}
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">* {{EHM_packages.id}}</p>
+                                   {% endfor %}
+                                           </div>
+                                           <div class="col-lg-6">
+                                                <img src="{% static 'assets/images/ehm.jpg' %}" class="image-fit" alt="img">
+                                           </div>
+                                       </div>
+
+
+                                   </div>
+
+                                   <div class="tab-pane fade" id="vertical2" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                       <div class="row">
+                                           <div class="col-lg-6">
+                                                <h4 style="text-align: center; font-weight: bold; color: #00000;">Executive Health Check-UP (Female)</h4>
+                                       <p style="text-align: center; font-weight: bold; color: #71748d;">Special Dicount Price - {{ package_type.1.package_price_optional }}&#2547;</p>
+                                          <p style="text-align: left;font-weight: bold;font-size: large;">Package Description:</p>
+                                    {% for EHF_packages in EHF_package %}
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">* {{EHF_packages.package_name}}</p>
+                                   {% endfor %}
+                                           </div>
+                                           <div class="col-lg-6">
+                                               <img src="{% static 'assets/images/ehf.jpeg' %}" class="image-fit" alt="img">
+                                           </div>
+                                       </div>
+
+                                   </div>
+
+                                   <div class="tab-pane fade" id="vertical3" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                       <div class="row">
+                                           <div class="col-6">
+                                                <h4 style="text-align: center; font-weight: bold; color: #00000;">Cancer Health Check-UP (Male)</h4>
+                                       <p style="text-align: center; font-weight: bold; color: #71748d;">Special Dicount Price - {{ package_type.1.package_price_optional }}&#2547;</p>
+                                          <p style="text-align: left;font-weight: bold;font-size: large;">Package Description:</p>
+                                    {% for CHM_packages in CHM_package %}
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">* {{CHM_packages.package_name}}</p>
+                                   {% endfor %}
+                                           </div>
+                                             <div class="col-6">
+                                             <img src="{% static 'assets/images/ehm.jpg' %}" class="image-fit" alt="img">
+
+                                           </div>
+
+                                       </div>
+
+                                   </div>
+
+                                   <div class="tab-pane fade" id="vertical4" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                     <div class="row">
+                                           <div class="col-6">
+                                                           <h4 style="text-align: center; font-weight: bold; color: #00000;">Cancer Health Check-UP (Female)</h4>
+                                       <p style="text-align: center; font-weight: bold; color: #71748d;">Special Dicount Price - {{ package_type.1.package_price_optional }}&#2547;</p>
+                                          <p style="text-align: left;font-weight: bold;font-size: large;">Package Description:</p>
+                                    {% for CHF_packages in CHF_package %}
+                                    <p style="text-align: left;font-weight: normal;font-size: medium;">* {{CHF_packages.package_name}}</p>
+                                   {% endfor %}
+                                           </div>
+                                             <div class="col-6">
+                                               <img src="{% static 'assets/images/ehf.jpeg' %}" class="image-fit" alt="img">
+                                           </div>
+
+                                       </div>
+
+
+                                   </div>
+
+                                   <div class="tab-pane fade" id="vertical5" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                       <h4 style="text-align: center; font-weight: bold;">AMCGH</h4>
+                                       <p style="text-align: center; font-weight: bold; color: #71748d;">International Standard Health Check-UP</p>
+                                       <p style="text-align: center; font-weight: bold;">আন্তর্জাতিক মানের স্বাস্থ্য পরীক্ষা</p>
+
+                                    <p style="text-align: left;font-weight: bold;font-size: large;">আমাদের সেবা সমূহ:</p>
+                                    {% for EHM_packages in EHM_package %}
+                                    <!--<p style="text-align: left;font-weight: normal;font-size: medium;">* {{EHM_packages.package_name}}</p>-->
+                                   {% endfor %}
+                                   </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+        </section>
+
+    <style>
+  .tab-vertical .nav.nav-tabs {
+    float: left;
+    display: block;
+    margin-right: 0px;
+    border-bottom: 0;
+}
+
+.tab-vertical .nav.nav-tabs .nav-item {
+    margin-bottom: 6px;
+}
+
+.tab-vertical .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background: #fff;
+    padding: 17px 49px;
+    color: #71748d;
+    background-color: #dddde8;
+    -webkit-border-radius: 4px 0px 0px 4px;
+    -moz-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.tab-vertical .nav-tabs .nav-link.active {
+    color: #109a49;
+    font-weight: bold;
+    background-color: #fff !important;
+    border-color: transparent !important;
+}
+
+.tab-vertical .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.tab-vertical .tab-content {
+    overflow: auto;
+    -webkit-border-radius: 0px 4px 4px 4px;
+    -moz-border-radius: 0px 4px 4px 4px;
+    border-radius: 0px 4px 4px 4px;
+    background: #fff;
+    padding: 30px;
+}
+
+    </style>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  {% endblock %}
